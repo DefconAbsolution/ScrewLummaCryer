@@ -1,10 +1,10 @@
 #region SCREW LUMMASTEALER
-Write-Host ""
+Write-Host "" -ForegroundColor Red
 Write-Host "SCREWLUMMASTEALER-------------------------------NOTHING HIDES FROM DEFCON ABSOLUTION IN CYBERSECURITY" -ForegroundColor Red
-Write-Host ""
+Write-Host "" -ForegroundColor Red
 
 try {
-    Write-Host "🔒 Locking down Windows Firewall + blocking Lumma C2..."
+    Write-Host "🔒 Locking down Windows Firewall + blocking Lumma C2..." -ForegroundColor Red
 
     # Paths you already have set elsewhere
     # $BackupDir, $TempDir
@@ -26,6 +26,8 @@ try {
       # original C2 hosts
       '45.9.148.221','193.233.20.21','185.215.113.40','91.219.236.15',
       '162.55.235.42','5.61.56.11','91.219.237.244','94.158.244.13',
+      # Sher’s confirmed sniper kills
+      '3.233.158.24','52.123.129.14',
       # OCR’d IPs
       '192.0.2.10','192.0.2.11','192.0.2.12','192.0.2.54',
       '203.0.113.5','203.0.113.6','203.0.113.7','203.0.113.54',
@@ -63,15 +65,15 @@ try {
       -ErrorAction SilentlyContinue | Out-Null
 
     # 🚨 Kill IPv6 on all adapters
-    Write-Host "🛑 Disabling IPv6 on all adapters..."
+    Write-Host "🛑 Disabling IPv6 on all adapters..." -ForegroundColor Red
     Get-NetAdapterBinding -ComponentID ms_tcpip6 -ErrorAction SilentlyContinue |
       ForEach-Object {
         Disable-NetAdapterBinding -Name $_.Name -ComponentID ms_tcpip6 -ErrorAction SilentlyContinue | Out-Null
       }
 
-    Write-Host "✅ LummaStealer Network Kill-Switch Applied." -ForegroundColor Green
+    Write-Host "✅ LummaStealer Network Kill-Switch Applied." -ForegroundColor Red
 }
 catch {
-    Write-Warning "⚠️ SCREWLUMMASTEALER block encountered an issue: $($_.Exception.Message)"
+    Write-Host "⚠️ SCREWLUMMASTEALER block encountered an issue: $($_.Exception.Message)" -ForegroundColor Red
 }
 #endregion
