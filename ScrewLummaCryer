@@ -1,79 +1,80 @@
-#region SCREW LUMMASTEALER
-Write-Host "" -ForegroundColor Red
-Write-Host "SCREWLUMMASTEALER-------------------------------NOTHING HIDES FROM DEFCON ABSOLUTION IN CYBERSECURITY" -ForegroundColor Red
-Write-Host "" -ForegroundColor Red
+Write-Host "THIS IS DEFCONABSOLUTION NOTHING HIDES FROM US IN THE NAME OF CYBERSECURITY" -ForegroundColor Red
+Write-Host "SCREWLUMMACRYERV4 #lummastealer obliteration protocol" -ForegroundColor Red
 
-try {
-    Write-Host "🔒 Locking down Windows Firewall + blocking Lumma C2..." -ForegroundColor Red
+$l_ips = @(
+  '45.9.148.221','193.233.20.21','185.215.113.40','91.219.236.15',
+  '162.55.235.42','5.61.56.11','91.219.237.244','94.158.244.13',
+  '3.233.158.24','52.123.129.14',
+  '192.0.2.10','192.0.2.11','192.0.2.12','192.0.2.54',
+  '203.0.113.5','203.0.113.6','203.0.113.7','203.0.113.54',
+  '198.51.100.22','198.51.100.23','198.51.100.24','198.51.100.25',
+  '198.51.100.26','198.51.100.27','198.51.100.28','198.51.100.29',
+  '198.51.100.30','198.51.100.31','198.51.100.32','198.51.100.33',
+  '198.51.100.34','198.51.100.35','198.51.100.36','198.51.100.37',
+  '198.51.100.38','198.51.100.39','198.51.100.40','198.51.100.41',
+  '198.51.100.42','198.51.100.43','198.51.100.44','198.51.100.45',
+  '198.51.100.54',
+  '20.42.65.59','52.114.207.64','119.232.37.91','199.232.37.91','188.172.221.9'
+)
 
-    # Paths you already have set elsewhere
-    # $BackupDir, $TempDir
+New-NetFirewallRule -DisplayName "SCREWLUMMACRYERV4" `
+                    -Direction Outbound `
+                    -Action Block `
+                    -RemoteAddress $l_ips `
+                    -Profile Any `
+                    -Protocol Any
 
-    # Backup current firewall rules
-    netsh advfirewall export "$BackupDir\FirewallBackup.wfw" | Out-Null
+$l_ipv6 = @(
+  '2a0b:4d07:2::221','2a0b:4d07:20::21','2a0b:4d07:113::40','2a0b:4d07:236::15',
+  '2a01:4f8:c2::235:42','2a0b:4d07:56::11','2a0b:4d07:237::244','2a0b:4d07:158::13'
+)
 
-    # Harden firewall defaults
-    Set-NetFirewallProfile -Profile Domain,Public,Private `
-        -DefaultInboundAction Block `
-        -DefaultOutboundAction Allow `
-        -LogAllowed True `
-        -LogBlocked True `
-        -LogFileName "$TempDir\pfirewall.log" `
-        -ErrorAction SilentlyContinue
+New-NetFirewallRule -DisplayName "Block Lumma IPv6" `
+                    -Direction Outbound `
+                    -Action Block `
+                    -RemoteAddress $l_ipv6 `
+                    -Profile Any `
+                    -Protocol Any
 
-    # Combined LummaStealer IPv4 blocklist
-    $l_ips = @(
-      # original C2 hosts
-      '45.9.148.221','193.233.20.21','185.215.113.40','91.219.236.15',
-      '162.55.235.42','5.61.56.11','91.219.237.244','94.158.244.13',
-      #SneakyIp's
-      '3.233.158.24','52.123.129.14',
-      # OCR’d IPs
-      '192.0.2.10','192.0.2.11','192.0.2.12','192.0.2.54',
-      '203.0.113.5','203.0.113.6','203.0.113.7','203.0.113.54',
-      '198.51.100.22','198.51.100.23','198.51.100.24','198.51.100.25',
-      '198.51.100.26','198.51.100.27','198.51.100.28','198.51.100.29',
-      '198.51.100.30','198.51.100.31','198.51.100.32','198.51.100.33',
-      '198.51.100.34','198.51.100.35','198.51.100.36','198.51.100.37',
-      '198.51.100.38','198.51.100.39','198.51.100.40','198.51.100.41',
-      '198.51.100.42','198.51.100.43','198.51.100.44','198.51.100.45',
-      '198.51.100.54'
-    )
+Write-Host "✅ LUMMASTEALER V4 FIREWALL LOCKDOWN COMPLETED" -ForegroundColor Red
+Write-Host "SCREWLUMMACRYERV4" -ForegroundColor Red
+Write-Host "THIS IS DEFCONABSOLUTION NOTHING HIDES FROM US IN THE NAME OF CYBERSECURITY" -ForegroundColor Red
+Write-Host "SCREWLUMMACRYERV4 #lummastealer obliteration protocol" -ForegroundColor Red
 
-    New-NetFirewallRule `
-      -DisplayName "Block Lumma IPv4" `
-      -Direction Outbound `
-      -Action Block `
-      -RemoteAddress $l_ips `
-      -Profile Any `
-      -Protocol Any `
-      -ErrorAction SilentlyContinue | Out-Null
+$l_ips = @(
+  '45.9.148.221','193.233.20.21','185.215.113.40','91.219.236.15',
+  '162.55.235.42','5.61.56.11','91.219.237.244','94.158.244.13',
+  '3.233.158.24','52.123.129.14',
+  '192.0.2.10','192.0.2.11','192.0.2.12','192.0.2.54',
+  '203.0.113.5','203.0.113.6','203.0.113.7','203.0.113.54',
+  '198.51.100.22','198.51.100.23','198.51.100.24','198.51.100.25',
+  '198.51.100.26','198.51.100.27','198.51.100.28','198.51.100.29',
+  '198.51.100.30','198.51.100.31','198.51.100.32','198.51.100.33',
+  '198.51.100.34','198.51.100.35','198.51.100.36','198.51.100.37',
+  '198.51.100.38','198.51.100.39','198.51.100.40','198.51.100.41',
+  '198.51.100.42','198.51.100.43','198.51.100.44','198.51.100.45',
+  '198.51.100.54',
+  '20.42.65.59','52.114.207.64','119.232.37.91','199.232.37.91','188.172.221.9'
+)
 
-    # LummaStealer IPv6 blocklist (original only)
-    $l_ipv6 = @(
-      '2a0b:4d07:2::221','2a0b:4d07:20::21','2a0b:4d07:113::40','2a0b:4d07:236::15',
-      '2a01:4f8:c2::235:42','2a0b:4d07:56::11','2a0b:4d07:237::244','2a0b:4d07:158::13'
-    )
+New-NetFirewallRule -DisplayName "SCREWLUMMACRYERV4" `
+                    -Direction Outbound `
+                    -Action Block `
+                    -RemoteAddress $l_ips `
+                    -Profile Any `
+                    -Protocol Any
 
-    New-NetFirewallRule `
-      -DisplayName "Block Lumma IPv6" `
-      -Direction Outbound `
-      -Action Block `
-      -RemoteAddress $l_ipv6 `
-      -Profile Any `
-      -Protocol Any `
-      -ErrorAction SilentlyContinue | Out-Null
+$l_ipv6 = @(
+  '2a0b:4d07:2::221','2a0b:4d07:20::21','2a0b:4d07:113::40','2a0b:4d07:236::15',
+  '2a01:4f8:c2::235:42','2a0b:4d07:56::11','2a0b:4d07:237::244','2a0b:4d07:158::13'
+)
 
-    # 🚨 Kill IPv6 on all adapters
-    Write-Host "🛑 Disabling IPv6 on all adapters..." -ForegroundColor Red
-    Get-NetAdapterBinding -ComponentID ms_tcpip6 -ErrorAction SilentlyContinue |
-      ForEach-Object {
-        Disable-NetAdapterBinding -Name $_.Name -ComponentID ms_tcpip6 -ErrorAction SilentlyContinue | Out-Null
-      }
+New-NetFirewallRule -DisplayName "Block Lumma IPv6" `
+                    -Direction Outbound `
+                    -Action Block `
+                    -RemoteAddress $l_ipv6 `
+                    -Profile Any `
+                    -Protocol Any
 
-    Write-Host "✅ LummaStealer Network Kill-Switch Applied." -ForegroundColor Red
-}
-catch {
-    Write-Host "⚠️ SCREWLUMMASTEALER block encountered an issue: $($_.Exception.Message)" -ForegroundColor Red
-}
-#endregion
+Write-Host "✅ LUMMASTEALER V4 FIREWALL LOCKDOWN COMPLETED" -ForegroundColor Red
+Write-Host "SCREWLUMMACRYERV4" -ForegroundColor Red
